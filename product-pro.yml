@@ -8,8 +8,20 @@ spring:
     password: fkp123456
     url: jdbc:mysql://localhost:3306/springcloud
 
+  rabbitmq:
+    host: 192.168.200.201
+    port: 5672
+    username: guest
+    password: guest
 server:
   port: 9001
+
+#暴露端点，用于发送post请求实现手动刷新
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh  #发送请求路径,向http://localhost:9001/actuator/bus-refresh 发送post请求实现手动刷新
 
 eureka:
   client:
