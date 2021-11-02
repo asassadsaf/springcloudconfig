@@ -22,4 +22,4 @@ eureka:
     lease-expiration-duration-in-seconds: 10 #eureka client发送心跳给server端后，续约到期时间（默认90秒）
     lease-renewal-interval-in-seconds: 5 #设置心跳频率
 
-name: product-pro
+name: product-pro-1
