@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: product-service
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: fkp123456
+    url: jdbc:mysql://localhost:3306/springcloud
+
+server:
+  port: 9001
+
+eureka:
+  client:
+    service-url:  #sureka server路径
+      defaultZone: http://127.0.0.1:9000/eureka/
+  healthcheck: true #开启健康检查(依赖spring-boot-actuator)
+  instance:
+    prefer-ip-address: true #是否使用ip注册
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} #在eureka客户端看到ip地址
+    lease-expiration-duration-in-seconds: 10 #eureka client发送心跳给server端后，续约到期时间（默认90秒）
+    lease-renewal-interval-in-seconds: 5 #设置心跳频率
+
+name: product-pro
